@@ -4,6 +4,7 @@
 # Wlasne
 *.bat
 *.py~
+*.idea
 
 
 # PyCharm____________
