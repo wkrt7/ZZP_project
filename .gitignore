@@ -3,7 +3,7 @@
 # Wlasne
 *.bat
 *.py~
-
+*.cmd
 
 # PyCharm____________
 .idea/

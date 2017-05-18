@@ -16,11 +16,13 @@ class Window(QtGui.QMainWindow):
         self.selected_table = self.ui.comboBox.currentText()
         self.ui.label.setText(self.selected_table)
         self.table_init()
+        self.edit_mode_init()
 
     def combo_box_init(self):
         tables = db.get_tables()
+        print tables
         for i in range(len(tables)):
-            self.ui.comboBox.addItem('%s ' %tables[i])
+            self.ui.comboBox.addItem('%s ' % tables[i])
         self.ui.comboBox.currentIndexChanged.connect(self.selection_change)
 
     def update_label(self):
@@ -33,8 +35,6 @@ class Window(QtGui.QMainWindow):
     def table_init(self):
         self.update_table()
         # self.ui.tableWidget.itemSelectionChanged.connect(self.delete)
-
-
 
     def update_table(self):
         cols = self.db.get_column(self.ui.comboBox.currentText())
@@ -75,6 +75,7 @@ class Window(QtGui.QMainWindow):
         print data
         self.db.insert_row(data=data, table_name=self.ui.comboBox.currentText())
         self.update_table()
+        self.old_ver = (self.read_data_from_qtable())  # To make possible editing inserted row
 
     def delete_row(self):
         choice = QtGui.QMessageBox.question(self, "Quit",
@@ -87,14 +88,42 @@ class Window(QtGui.QMainWindow):
             for currentQTableWidgetItem in self.ui.tableWidget.selectedItems():
                 i = currentQTableWidgetItem.row()
                 j = currentQTableWidgetItem.column()
-                txt =  currentQTableWidgetItem.text()
-            print row[i]
-            print col[j]
+                txt = currentQTableWidgetItem.text()
             self.db.delete_row(str(col[j][0]), txt, str(self.ui.comboBox.currentText()))
+            self.old_ver = (self.read_data_from_qtable())  # To make possible editing inserted row
             self.update_table()
         else:
             pass
-        print "Podswietlono"
+
+    def enter_edit_mode(self):
+        self.old_ver = (self.read_data_from_qtable())
+        if self.ui.radioButton.isChecked():
+            self.ui.pushButton_3.setVisible(False)
+            self.ui.comboBox.setVisible(True)
+        else:
+            self.ui.pushButton_3.setVisible(True)
+            self.ui.comboBox.setVisible(False)
+
+    def edit_mode_init(self):
+        if self.ui.radioButton.isChecked():
+            self.ui.pushButton_3.setVisible(True)
+            self.ui.comboBox.setVisible(False)
+        else:
+            self.ui.pushButton_3.setVisible(False)
+            self.ui.comboBox.setVisible(True)
+
+    def edit_row(self):
+        for currentQTableWidgetItem in self.ui.tableWidget.selectedItems():
+            i = currentQTableWidgetItem.row()
+            j = currentQTableWidgetItem.column()
+            txt = currentQTableWidgetItem.text()
+            print i, j, txt
+        print(self.read_data_from_qtable())
+        col = self.db.get_column(self.ui.comboBox.currentText())
+        self.db.edit_row(self.ui.comboBox.currentText(), 'id', self.old_ver[i][0], col[j][0],txt)
+        self.old_ver = (self.read_data_from_qtable())  # To make possible editing inserted row
+
+        self.update_table()
 
     def close_application(self):
         choice = QtGui.QMessageBox.question(self, "Quit", 'Are you sure',

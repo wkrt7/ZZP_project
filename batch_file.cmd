@@ -17,5 +17,6 @@ set PATH=%PATH%;D:\Program Files\Python\Python27-64\Lib\site-packages\PyQt4\plug
 set PATH=%PATH%;D:\Program Files\Python\Python35-64
 set PATH=%PATH%;D:\Program Files\Python\Python35-64\Scripts
 set PATH=%PATH%;C:\Program Files\MySQL\MySQL Server 5.6\bin
+set PATH=%PATH%;D:\Program Files\Git\bin
 cd %mypath
 cmd

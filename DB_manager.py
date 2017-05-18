@@ -10,8 +10,6 @@ class DatabaseClass:
                                                password='admin',
                                                host='127.0.0.1')
         self.cursor = self.connect.cursor()
-
-
         self.connect_2_databsae()
 
     def connect_2_databsae(self):
@@ -29,20 +27,20 @@ class DatabaseClass:
         return self.run_command("SHOW COLUMNS FROM %s;" % table_name)
 
     def get_rows(self, table_name):
-        return self.run_command("Select *  FROM %s;" % table_name)
+        return self.run_command("SELECT *  FROM %s;" % table_name)
 
     def get_tables(self):
-        return self.run_command("show tables;")
+        return self.run_command("SHOW TABLES;")
 
     def get_table(self, name='nazwa1'):
-        return self.run_command("select * from " + name + ';')
+        return self.run_command("SELECT * FROM " + name + ';')
 
     def insert_row(self, data, table_name='nazwa1'):
         values = data[0]
         for i in range(1, len(data)):
             values += ' ,' + "'" + (data[i])+"'"
         print values
-        return self.run_command("Insert into " + str(table_name) + ' values ( ' + values + ');' )
+        return self.run_command("INSERT INTO " + str(table_name) + ' VALUES ( ' + values + ');' )
 
     def delete_row(self, key, value, table_name):
         return self.run_command("DELETE FROM " + str(table_name) + 'WHERE ' + str(key) + "= '" + str(value) + "';")
@@ -57,6 +55,10 @@ class DatabaseClass:
                 list.append(str(rows[i][j]))
             dict[str(cols[j][0])] = list
         return dict
+
+    def edit_row(self,table_name,id_name,id_val,column,data):
+        return self.run_command("UPDATE " + str(table_name) + 'SET '+ str(column) + "= '"+ str(data) +"' WHERE " + 'id' +
+                                " ='" + str(id_val) + "';")
 
     def run_command(self, cmd):
 
