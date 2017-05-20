@@ -95,6 +95,78 @@
     </property>
    </widget>
   </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>360</x>
+     <y>140</y>
+     <width>46</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>username:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>360</x>
+     <y>160</y>
+     <width>46</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>password</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_5">
+   <property name="geometry">
+    <rect>
+     <x>410</x>
+     <y>180</y>
+     <width>75</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Log in</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit">
+   <property name="geometry">
+    <rect>
+     <x>410</x>
+     <y>140</y>
+     <width>113</width>
+     <height>20</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_2">
+   <property name="geometry">
+    <rect>
+     <x>410</x>
+     <y>160</y>
+     <width>113</width>
+     <height>20</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_6">
+   <property name="geometry">
+    <rect>
+     <x>410</x>
+     <y>180</y>
+     <width>75</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Log out</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections>
@@ -105,7 +177,7 @@
    <slot>insert_row()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>310</x>
+     <x>387</x>
      <y>24</y>
     </hint>
     <hint type="destinationlabel">
@@ -121,7 +193,7 @@
    <slot>delete_row()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>392</x>
+     <x>342</x>
      <y>22</y>
     </hint>
     <hint type="destinationlabel">
@@ -146,6 +218,54 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>pushButton_3</sender>
+   <signal>clicked()</signal>
+   <receiver>Dialog</receiver>
+   <slot>edit_row()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>456</x>
+     <y>20</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>475</x>
+     <y>58</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_5</sender>
+   <signal>clicked()</signal>
+   <receiver>Dialog</receiver>
+   <slot>login()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>463</x>
+     <y>196</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>465</x>
+     <y>223</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_6</sender>
+   <signal>clicked()</signal>
+   <receiver>Dialog</receiver>
+   <slot>logout()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>426</x>
+     <y>193</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>423</x>
+     <y>237</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>close_aplication()</slot>
@@ -155,5 +275,7 @@
   <slot>edit_row()</slot>
   <slot>enter_edit_mode()</slot>
   <slot>leave_edit_mode()</slot>
+  <slot>login()</slot>
+  <slot>logout()</slot>
  </slots>
 </ui>

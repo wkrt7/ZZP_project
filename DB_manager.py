@@ -30,6 +30,7 @@ class DatabaseClass:
         return self.run_command("SELECT *  FROM %s;" % table_name)
 
     def get_tables(self):
+        self.run_command('USE ' + self.name)
         return self.run_command("SHOW TABLES;")
 
     def get_table(self, name='nazwa1'):
@@ -57,7 +58,7 @@ class DatabaseClass:
         return dict
 
     def edit_row(self,table_name,id_name,id_val,column,data):
-        return self.run_command("UPDATE " + str(table_name) + 'SET '+ str(column) + "= '"+ str(data) +"' WHERE " + 'id' +
+        return self.run_command("UPDATE " + str(table_name) + 'SET '+ str(column) + "= '"+ str(data) +"' WHERE " + id_name +
                                 " ='" + str(id_val) + "';")
 
     def run_command(self, cmd):
