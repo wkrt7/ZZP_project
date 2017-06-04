@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>614</width>
-    <height>334</height>
+    <width>670</width>
+    <height>305</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -168,6 +168,19 @@
    </property>
   </widget>
  </widget>
+ <tabstops>
+  <tabstop>comboBox</tabstop>
+  <tabstop>lineEdit</tabstop>
+  <tabstop>lineEdit_2</tabstop>
+  <tabstop>pushButton_4</tabstop>
+  <tabstop>radioButton</tabstop>
+  <tabstop>tableWidget</tabstop>
+  <tabstop>pushButton_2</tabstop>
+  <tabstop>pushButton_5</tabstop>
+  <tabstop>pushButton_6</tabstop>
+  <tabstop>pushButton</tabstop>
+  <tabstop>pushButton_3</tabstop>
+ </tabstops>
  <resources/>
  <connections>
   <connection>

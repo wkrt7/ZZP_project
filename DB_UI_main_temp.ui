@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>740</width>
+    <height>509</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout_5">
+    <item row="2" column="1">
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_2">
+        <property name="text">
+         <string>username:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="label_3">
+        <property name="text">
+         <string>password</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="QPushButton" name="pushButton_5">
+        <property name="text">
+         <string>Log in</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1" colspan="2">
+       <widget class="QLineEdit" name="lineEdit_2"/>
+      </item>
+      <item row="3" column="2">
+       <widget class="QPushButton" name="pushButton_6">
+        <property name="text">
+         <string>Log out</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="2">
+       <widget class="QPushButton" name="pushButton_4">
+        <property name="text">
+         <string>Quit</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1" colspan="2">
+       <widget class="QLineEdit" name="lineEdit"/>
+      </item>
+     </layout>
+    </item>
+    <item row="0" column="0" colspan="2">
+     <layout class="QGridLayout" name="gridLayout_4">
+      <item row="1" column="0">
+       <widget class="QTableWidget" name="tableWidget"/>
+      </item>
+      <item row="0" column="0">
+       <widget class="QComboBox" name="comboBox"/>
+      </item>
+      <item row="2" column="0">
+       <widget class="QSplitter" name="splitter_2">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <widget class="QWidget" name="">
+         <layout class="QGridLayout" name="gridLayout_2">
+          <item row="0" column="2">
+           <widget class="QPushButton" name="pushButton_3">
+            <property name="text">
+             <string>Edit</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QPushButton" name="pushButton_2">
+            <property name="text">
+             <string>Delete Row</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QPushButton" name="pushButton">
+            <property name="text">
+             <string>Insert Row</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="2">
+           <widget class="QRadioButton" name="radioButton">
+            <property name="text">
+             <string>Want to edit?</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item row="2" column="0">
+     <widget class="QLabel" name="label">
+      <property name="text">
+       <string>TextLabel</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+   <zorder>label_3</zorder>
+   <zorder>splitter</zorder>
+   <zorder>lineEdit</zorder>
+   <zorder>label_2</zorder>
+   <zorder>pushButton_6</zorder>
+   <zorder>splitter_2</zorder>
+   <zorder>lineEdit_2</zorder>
+   <zorder>pushButton</zorder>
+   <zorder></zorder>
+   <zorder>label</zorder>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>740</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>pushButton_3</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>edit_row()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>497</x>
+     <y>53</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>525</x>
+     <y>92</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>insert_row()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>412</x>
+     <y>53</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>391</x>
+     <y>27</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_2</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>delete_row()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>337</x>
+     <y>48</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>314</x>
+     <y>108</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>radioButton</sender>
+   <signal>pressed()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>enter_edit_mode()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>391</x>
+     <y>85</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>373</x>
+     <y>125</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_6</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>logout()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>473</x>
+     <y>224</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>481</x>
+     <y>286</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_5</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>login()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>452</x>
+     <y>221</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>430</x>
+     <y>297</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>edit_row()</slot>
+  <slot>insert_row()</slot>
+  <slot>delete_row()</slot>
+  <slot>enter_edit_mode()</slot>
+  <slot>logout()</slot>
+  <slot>login()</slot>
+ </slots>
+</ui>

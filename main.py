@@ -1,7 +1,7 @@
 from PyQt4 import QtSql, QtGui, QtCore
 from PyQt4.QtCore import *
 import sys
-from DB_UI_main import Ui_Dialog
+from DB_UI_main import Ui_MainWindow
 from DB_manager import DatabaseClass
 
 
@@ -10,7 +10,7 @@ class Window(QtGui.QMainWindow):
         QtGui.QWidget.__init__(self, parent)
         self.logged_user_id = 3
         self.db = DatabaseClass('zzp_project')
-        self.ui = Ui_Dialog()
+        self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         self.ui.pushButton_4.clicked.connect(self.close_application)  # Quit button
         self.ui.pushButton_6.setVisible(False)  # Logout button
@@ -18,6 +18,8 @@ class Window(QtGui.QMainWindow):
         self.selected_table = self.ui.comboBox.currentText()
         self.table_init()
         self.edit_mode_init()
+        self.setWindowTitle('Zarzadzanie baza danych')
+        self.setWindowIcon(QtGui.QIcon('logo.png'))
 
     def combo_box_init(self):
         tables = db.get_tables()
@@ -29,7 +31,6 @@ class Window(QtGui.QMainWindow):
             # else:
             self.ui.comboBox.addItem('%s ' % tables[i])
         self.ui.comboBox.currentIndexChanged.connect(self.selection_change)
-
 
     def update_label(self, txt):
         self.ui.label.setText(txt)
@@ -159,7 +160,7 @@ class Window(QtGui.QMainWindow):
                 self.update_table()
                 return
         QtGui.QMessageBox.warning(
-            self, 'Error', 'Bad user or password')
+            self, 'Error', 'Wrong user or password')
 
     def logout(self):
         self.ui.lineEdit_2.setVisible(True)
@@ -193,19 +194,8 @@ class Window(QtGui.QMainWindow):
         else:
             pass
 
-
-
 if __name__ == '__main__':
 
-
-    import sys
-
-    # db_name = 'zzp_project'
-    # db = DatabaseClass(db_name)
-    # app = QtGui.QApplication(sys.argv)
-    # login = Login()
-    #
-    # if login.exec_() == QtGui.QDialog.Accepted:
     db_name = 'zzp_project'
     db = DatabaseClass(db_name)
     app = QtGui.QApplication(sys.argv)
